@@ -15,7 +15,7 @@ function fetchForecast ( cityCode ) {
             output.status = textStatus;
         })
     ;
-    
+
 
     return output;
 };
@@ -29,11 +29,14 @@ function checkFetch ( fetchData ){
 }
 
 function renderForecast ( data ){
-
+    var weather = JSON.parse(data);
+    var weatherForecast = weather.forecast;
+    foreach(weather.forecast)
 }
 
 function displayError ( status, data ){
-
+    $('cityForecast').html().append("<h1> API Error " + status + "</h1>");
+    $('cityForecast').append("<p>" + data + "</p>");
 }
 
 $(document).ready(function(){
